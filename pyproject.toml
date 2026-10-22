@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "crap"
+version = "0.1.0"
+description = "Can't Reasonably Articulate Proofs: Lean proof research with Codex and Aristotle MCP"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = []
+
+[project.urls]
+Repository = "https://github.com/tdwag123/CRAP"
+Issues = "https://github.com/tdwag123/CRAP/issues"
+
+[project.scripts]
+crap = "crap.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["crap*"]
+
+[tool.setuptools.package-data]
+crap = ["prompts/*.txt"]

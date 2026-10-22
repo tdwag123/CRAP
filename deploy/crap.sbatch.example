@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+#SBATCH --job-name=crap
+#SBATCH --cpus-per-task=4
+#SBATCH --mem=32G
+#SBATCH --time=2-00:00:00
+#SBATCH --output=crap-%j.log
+set -euo pipefail
+# Adjust allocation limits and paths to the amath server's scheduler policy.
+# Persistent state must survive allocation expiry. The 48-hour problem deadline
+# survives requeueing; dependency setup and preflight should be done beforehand.
+cd /ABSOLUTE/PATH/CRAP
+exec .venv/bin/python -m crap --config pipeline.local.json run

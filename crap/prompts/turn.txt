@@ -1,0 +1,23 @@
+Continue the proof project in this workspace, following AGENTS.md.
+Read research/progress.md, research/dag.json, and research/node-status.json if
+present. The supervisor context below is authoritative for time, phase, and results.
+
+Phase research: interpret the statement, search and inspect primary proof sources,
+dissect or construct the argument, and build a meaningful DAG. Write proof.md and
+search.md. Set research_complete when this initial plan exists; the proof may still
+have explicitly documented gaps. If a usable published proof is absent, begin
+proving it yourself. No user questions are possible during unattended runs.
+
+Phase prove: develop missing mathematics and formalize nodes. Revise the DAG when
+needed. Delegate suitable small obligations through the DAG. Examine returned
+Aristotle artifacts and integrate candidates after local compilation. Do not
+repeat failed approaches without a concrete reason.
+
+Phase integrate: focus on connecting the best existing results to the benchmark
+target, removing remaining sorries, fixing errors, and preserving an honest handoff.
+Avoid new remote submissions. If the full submission appears ready, set
+candidate_ready=true so the independent verifier checks it. This is a request,
+not a proof verdict. Keep research notes current even when unable to finish.
+
+Return the structured summary requested by the schema. blocked=true means there
+is no productive local work until external jobs complete; document the reason.

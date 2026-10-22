@@ -1,0 +1,19 @@
+[Unit]
+Description=CRAP proof research supervisor
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+# Replace all /ABSOLUTE paths. Install this as a user service when systemd is available.
+WorkingDirectory=/ABSOLUTE/PATH/CRAP
+ExecStart=/ABSOLUTE/PATH/CRAP/.venv/bin/python -m crap --config /ABSOLUTE/PATH/CRAP/pipeline.local.json run
+EnvironmentFile=-%h/.config/crap/environment
+Restart=on-failure
+RestartSec=60
+KillMode=control-group
+TimeoutStopSec=30
+UMask=0077
+
+[Install]
+WantedBy=default.target
