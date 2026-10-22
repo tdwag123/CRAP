@@ -11,3 +11,16 @@ pipeline.local.json
 !.env.example
 build/
 dist/
+/proofs/
+/solutions/
+/research/
+/workspaces/
+/generated/
+/submissions/
+/runs/
+/artifacts/
+*.lean
+*.olean
+*.ilean
+*.jsonl
+*.sqlite*

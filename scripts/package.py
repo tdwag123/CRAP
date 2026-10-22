@@ -1,7 +1,11 @@
 """Package source for transfer to the server, excluding credentials and run state."""
 import argparse
+import sys
 import zipfile
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from crap.publication import check_paths
 
 
 def main():
@@ -10,9 +14,12 @@ def main():
     args = parser.parse_args()
     root = Path(__file__).resolve().parents[1]
     sources = [root / name for name in ("README.md", "AGENTS.md", "pyproject.toml", ".gitignore", ".gitattributes")]
-    for directory in ("crap", "tests", "scripts", "deploy", ".github"):
+    for directory in ("crap", "tests", "scripts", "deploy", ".github", ".githooks"):
         sources.extend(p for p in (root / directory).rglob("*")
                        if p.is_file() and "__pycache__" not in p.parts and p.suffix != ".pyc")
+    rejected = check_paths(path.relative_to(root).as_posix() for path in sources)
+    if rejected:
+        raise ValueError("Private or unrecognized files cannot be packaged: " + ", ".join(rejected))
     args.output.parent.mkdir(parents=True, exist_ok=True)
     with zipfile.ZipFile(args.output, "w", compression=zipfile.ZIP_DEFLATED) as archive:
         for path in sorted(sources):

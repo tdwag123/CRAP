@@ -10,6 +10,30 @@ external services. Live proof acceptance requires the Linux verifier preflight.
 Live Codex and Aristotle runs require your configured accounts. A simulated test
 result is never evidence of a mathematical proof.
 
+## Public pipeline, private problem work
+
+This repository publishes **pipeline source and synthetic tests only**. All
+LeanEval problem work remains private: complete and partial proofs, helper lemmas,
+problem-specific research, DAGs, notes, logs, results, and handoffs. Do not upload
+these to GitHub, public issues, releases, leaderboards, or other public services.
+Permission to publish pipeline improvements does not authorize publishing proofs.
+Aristotle receives only the minimum lemma and prerequisite context required for
+an authorized delegation; it is not a destination for whole research campaigns.
+
+Enable the local pre-push check after cloning:
+
+```bash
+python scripts/check_public.py --install
+```
+
+The hook checks every outgoing commit, including files removed by a later commit.
+The packaging command uses the same public-source path policy; CI also checks
+tracked paths. These checks reject known artifact paths and unrecognized file types.
+They do not determine whether arbitrary source code or prose contains private
+research: the publication rule also applies when reviewing a diff. Never bypass
+the hook to push problem work. Runtime workspaces have separate local Git histories
+and must not be connected to this public repository.
+
 ## Workflow
 
 1. Pin the benchmark commit and prepare its exact Lean/Mathlib dependencies.

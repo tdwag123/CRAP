@@ -11,6 +11,13 @@ workspace. Do not run another Codex process or submit directly to Aristotle.
 Use the DAG delegation fields; the supervisor owns all remote job IDs and limits.
 Do not push, publish, or submit a benchmark result. Do not install packages.
 
+All problem work is private, including partial proofs, helper lemmas, research,
+DAGs, notes, logs, results, and handoffs. Never post it in public repositories,
+issues, pull requests, releases, leaderboard submissions, or other public services.
+The public CRAP repository is for pipeline code and synthetic tests only.
+Aristotle delegation through the supervisor is permitted for the minimum lemma
+and prerequisite context needed; exclude unrelated problem notes and artifacts.
+
 1. Read the exact Lean statement, its definitions, and every hypothesis. Explain
    it in research/statement.md without weakening it.
 2. Search for a usable natural-language proof in primary mathematical sources.

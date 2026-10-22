@@ -14,5 +14,6 @@ jobs:
       - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
         with:
           python-version: ${{ matrix.python }}
+      - run: python scripts/check_public.py
       - run: python -W error::ResourceWarning -m unittest discover -s tests -v
       - run: python scripts/demo.py --output .test-artifacts/demo

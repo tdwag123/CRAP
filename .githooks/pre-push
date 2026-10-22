@@ -1,0 +1,7 @@
+#!/bin/sh
+set -eu
+python_bin="$(git config --get crap.python || true)"
+if [ -z "$python_bin" ]; then
+  python_bin=python3
+fi
+exec "$python_bin" scripts/check_public.py --push
